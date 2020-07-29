@@ -10,7 +10,7 @@ import requests
 
 
 def save_ftse100_tickers():
-    # Scrapes wikipedia list for FTSE100 tickers (EPIC codes), then pickles them
+    # Scrapes wikipedia list for FTSE100 tickers (EPIC), then pickles them
     resp = requests.get('https://en.wikipedia.org/wiki/FTSE_100_Index')
     soup = bs.BeautifulSoup(resp.text, "lxml") #text of source code
     table = soup.find('table', {'class': 'wikitable sortable', 'id': 'constituents'})
