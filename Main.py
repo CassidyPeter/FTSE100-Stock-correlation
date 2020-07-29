@@ -38,6 +38,10 @@ def get_data_from_yahoo(reload_ftse100=False, reload_ticker_data=False):
             tickers = pickle.load(f)
 
     if reload_ticker_data:
+        if os.path.exists('stock_dfs_ftse100'):
+            for filename in os.listdir('stock_dfs_ftse100'):
+                path = os.path.join('stock_dfs_ftse100', filename)
+                os.remove(path)
         if not os.path.exists('stock_dfs_ftse100'):
             os.makedirs('stock_dfs_ftse100')
 
@@ -46,11 +50,9 @@ def get_data_from_yahoo(reload_ftse100=False, reload_ticker_data=False):
         for ticker in tickers:
             try:
                 print(ticker)
-                if not os.path.exists('stock_dfs_ftse100/{}.csv'.format(ticker)):
-                    df = web.get_data_yahoo(ticker, start, end)
-                    df.to_csv('stock_dfs_ftse100/{}.csv'.format(ticker))
-                else:
-                    print('Already have {}'.format(ticker))
+                df = web.get_data_yahoo(ticker, start, end)
+                df.to_csv('stock_dfs_ftse100/{}.csv'.format(ticker))
+
             except:
                 pass
 
