@@ -4,7 +4,4 @@ A visual representation of correlation between consistuent stocks of the FTSE100
 
 Stock correlation can be used for risk management to minimise losses. Where a portfolio is diversified with non-correlated stocks, volatility is mitigated - but where a portfolio is diversified with negatively correlated stocks, risk is reduced.
 
-
-Note: There is a bug with the Natwest Group EPIC on Yahoo! Finance, hence the streaks of absent data.
-
 ![Correlation](https://github.com/CassidyPeter/FTSE100-Stock-correlation/blob/master/FTSE100_correlation.png?raw=true)
